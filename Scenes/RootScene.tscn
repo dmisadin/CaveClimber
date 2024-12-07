@@ -106,59 +106,59 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_glggs")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c1xkn"]
-size = Vector2(24, 30)
+size = Vector2(20, 35)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_1hwsf"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_yfy1x"]
 atlas = ExtResource("2_4dvym")
-region = Rect2(32, 32, 32, 32)
+region = Rect2(0, 0, 96, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_hgav4"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_71vly"]
 atlas = ExtResource("2_4dvym")
-region = Rect2(128, 32, 32, 32)
+region = Rect2(96, 0, 96, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_f0feg"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_fgrbc"]
 atlas = ExtResource("2_4dvym")
-region = Rect2(224, 32, 32, 32)
+region = Rect2(192, 0, 96, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_0w2p1"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ijh0l"]
 atlas = ExtResource("2_4dvym")
-region = Rect2(320, 32, 32, 32)
+region = Rect2(288, 0, 96, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_g613y"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_lvwo1"]
 atlas = ExtResource("2_4dvym")
-region = Rect2(416, 32, 32, 32)
+region = Rect2(384, 0, 96, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ungpk"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_0kkqh"]
 atlas = ExtResource("2_4dvym")
-region = Rect2(512, 32, 32, 32)
+region = Rect2(480, 0, 96, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_20fkk"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_a4l34"]
 atlas = ExtResource("2_4dvym")
-region = Rect2(608, 32, 32, 32)
+region = Rect2(576, 0, 96, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_084uf"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_1hwsf")
+"texture": SubResource("AtlasTexture_yfy1x")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_hgav4")
+"texture": SubResource("AtlasTexture_71vly")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_f0feg")
+"texture": SubResource("AtlasTexture_fgrbc")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_0w2p1")
+"texture": SubResource("AtlasTexture_ijh0l")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_g613y")
+"texture": SubResource("AtlasTexture_lvwo1")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ungpk")
+"texture": SubResource("AtlasTexture_0kkqh")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_20fkk")
+"texture": SubResource("AtlasTexture_a4l34")
 }],
 "loop": true,
 "name": &"default",
@@ -174,12 +174,14 @@ tile_set = SubResource("TileSet_4g46u")
 [node name="Player" type="CharacterBody2D" parent="."]
 position = Vector2(283, 495)
 script = ExtResource("2_qqwdw")
+metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-position = Vector2(0, -1)
+position = Vector2(0, -3.5)
 shape = SubResource("RectangleShape2D_c1xkn")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
+position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_084uf")
 autoplay = "default"
 
@@ -187,8 +189,8 @@ autoplay = "default"
 
 [node name="RaycastLeft" type="RayCast2D" parent="Player"]
 rotation = 1.5708
-target_position = Vector2(0, 16)
+target_position = Vector2(0, 12)
 
 [node name="RaycastRight" type="RayCast2D" parent="Player"]
 rotation = -1.5708
-target_position = Vector2(0, 16)
+target_position = Vector2(0, 12)
