@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c0ahtayy1qvu3"
-path="res://.godot/imported/Warrior_Blue.png-0e908097d29d2602fbbcaf69ada43478.ctex"
+uid="uid://dv2bijxfavues"
+path="res://.godot/imported/ATTACK 2.png-a68f28d03046a38c68c331bf151e439c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Warrior/Blue/Warrior_Blue.png"
-dest_files=["res://.godot/imported/Warrior_Blue.png-0e908097d29d2602fbbcaf69ada43478.ctex"]
+source_file="res://Sprites/Knight/ATTACK 2.png"
+dest_files=["res://.godot/imported/ATTACK 2.png-a68f28d03046a38c68c331bf151e439c.ctex"]
 
 [params]
 

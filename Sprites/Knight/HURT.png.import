@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://4kw45r7gc6yt"
-path="res://.godot/imported/Warrior_Purple.png-d47be446fc334967e96e14a63ed87995.ctex"
+uid="uid://eayhoegmrr83"
+path="res://.godot/imported/HURT.png-c144c8f5a8e594a148ef25b841e79577.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Warrior/Purple/Warrior_Purple.png"
-dest_files=["res://.godot/imported/Warrior_Purple.png-d47be446fc334967e96e14a63ed87995.ctex"]
+source_file="res://Sprites/Knight/HURT.png"
+dest_files=["res://.godot/imported/HURT.png-c144c8f5a8e594a148ef25b841e79577.ctex"]
 
 [params]
 

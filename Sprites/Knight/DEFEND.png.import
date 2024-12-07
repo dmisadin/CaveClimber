@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://n8dwftpujb3y"
-path="res://.godot/imported/Warrior_Red.png-3ed57870bfff61339b17777a648e51f9.ctex"
+uid="uid://v8c7kx5t7g4p"
+path="res://.godot/imported/DEFEND.png-595d77cce95da8bd1987c03c84b52f1f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Warrior/Red/Warrior_Red.png"
-dest_files=["res://.godot/imported/Warrior_Red.png-3ed57870bfff61339b17777a648e51f9.ctex"]
+source_file="res://Sprites/Knight/DEFEND.png"
+dest_files=["res://.godot/imported/DEFEND.png-595d77cce95da8bd1987c03c84b52f1f.ctex"]
 
 [params]
 
