@@ -1,10 +1,9 @@
-[gd_scene load_steps=41 format=4 uid="uid://ckayv43occd3y"]
+[gd_scene load_steps=35 format=4 uid="uid://ckayv43occd3y"]
 
 [ext_resource type="Texture2D" uid="uid://cmoivdeik8l7k" path="res://Scenes/Textures/CastleStones.png" id="1_hl8ww"]
 [ext_resource type="Texture2D" uid="uid://l2y0bvdth5uj" path="res://Sprites/Knight/IDLE.png" id="2_4dvym"]
 [ext_resource type="Script" path="res://Sprites/PlayerController.cs" id="2_qqwdw"]
 [ext_resource type="Texture2D" uid="uid://eayhoegmrr83" path="res://Sprites/Knight/HURT.png" id="3_g73n4"]
-[ext_resource type="Texture2D" uid="uid://gh3giiise43c" path="res://Sprites/Knight/knight-sprite-sheet.png" id="3_vhh0x"]
 [ext_resource type="Texture2D" uid="uid://k47onlx2y8ql" path="res://Sprites/Knight/JUMP.png" id="4_083g3"]
 [ext_resource type="Texture2D" uid="uid://4r3xe1skg3ea" path="res://Sprites/Knight/RUN.png" id="5_ajp8b"]
 
@@ -112,26 +111,6 @@ sources/0 = SubResource("TileSetAtlasSource_glggs")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c1xkn"]
 size = Vector2(20, 35)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_kd60u"]
-atlas = ExtResource("3_vhh0x")
-region = Rect2(0, 160, 90, 80)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7cm3w"]
-atlas = ExtResource("3_vhh0x")
-region = Rect2(90, 160, 90, 80)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_rpqr7"]
-atlas = ExtResource("3_vhh0x")
-region = Rect2(180, 160, 90, 80)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_2ud50"]
-atlas = ExtResource("3_vhh0x")
-region = Rect2(270, 160, 90, 80)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qwo0c"]
-atlas = ExtResource("3_vhh0x")
-region = Rect2(360, 160, 90, 80)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_hoq46"]
 atlas = ExtResource("3_g73n4")
 region = Rect2(0, 0, 96, 64)
@@ -230,26 +209,6 @@ region = Rect2(672, 0, 96, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_084uf"]
 animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_kd60u")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7cm3w")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_rpqr7")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_2ud50")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qwo0c")
-}],
-"loop": true,
-"name": &"Dash",
-"speed": 5.0
-}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_hoq46")
@@ -361,8 +320,9 @@ shape = SubResource("RectangleShape2D_c1xkn")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
 position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_084uf")
-animation = &"Dash"
+animation = &"Hurt"
 autoplay = "Idle"
+frame_progress = 0.580636
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 
