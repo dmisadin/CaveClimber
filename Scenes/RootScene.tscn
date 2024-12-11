@@ -1,4 +1,4 @@
-[gd_scene load_steps=97 format=4 uid="uid://ckayv43occd3y"]
+[gd_scene load_steps=106 format=4 uid="uid://ckayv43occd3y"]
 
 [ext_resource type="Texture2D" uid="uid://cmoivdeik8l7k" path="res://Scenes/Textures/CastleStones.png" id="1_hl8ww"]
 [ext_resource type="Texture2D" uid="uid://yf6ab2s2jx8t" path="res://Scenes/Textures/Dungeon_brick_wall_blue_dark.png" id="1_ogr4o"]
@@ -7,7 +7,13 @@
 [ext_resource type="PackedScene" uid="uid://ckc8fr1mv8qyd" path="res://Sprites/Torch/Torch.tscn" id="3_44pyi"]
 [ext_resource type="Texture2D" uid="uid://eayhoegmrr83" path="res://Sprites/Knight/HURT.png" id="3_g73n4"]
 [ext_resource type="Texture2D" uid="uid://k47onlx2y8ql" path="res://Sprites/Knight/JUMP.png" id="4_083g3"]
+[ext_resource type="Script" path="res://Sprites/Torch/TorchController.cs" id="4_gt8qm"]
 [ext_resource type="Texture2D" uid="uid://4r3xe1skg3ea" path="res://Sprites/Knight/RUN.png" id="5_ajp8b"]
+[ext_resource type="Script" path="res://Scenes/Bat.cs" id="10_eqbjy"]
+[ext_resource type="Texture2D" uid="uid://br4f8s2pdndur" path="res://Sprites/Bat/Bat1.png" id="11_qbgwb"]
+[ext_resource type="Texture2D" uid="uid://c1gt4huvj66ts" path="res://Sprites/Bat/Bat2.png" id="12_objgg"]
+[ext_resource type="Texture2D" uid="uid://c2mps403hmmb7" path="res://Sprites/Bat/Bat3.png" id="13_tlw4k"]
+[ext_resource type="Texture2D" uid="uid://bf84mio25nbi0" path="res://Sprites/Bat/Bat4.png" id="14_nseq7"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_efouo"]
 polygon = PackedVector2Array(-12, -11.75, 16, -11.25, 16, 16, -11.75, 16)
@@ -852,6 +858,9 @@ terrain_set_0/terrain_0/name = "Terrain 0"
 terrain_set_0/terrain_0/color = Color(0.264875, 0.627778, 0.288175, 1)
 sources/0 = SubResource("TileSetAtlasSource_glggs")
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_2h3hh"]
+radius = 55.3624
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c1xkn"]
 size = Vector2(20, 31)
 
@@ -1049,13 +1058,37 @@ animations = [{
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_8c7ah"]
 polygon = PackedVector2Array(-2, -19, 1, -20, 4, -20, 8, -16, 6, -13, 7, -8, 9, -7, 12, -4, 11, 3, 7, 7, 7, 11, 10, 12, 9, 14, -9, 14, -9, 11, -6, 4, -7, 1, -10, 6, -13, 1, -8, -6, -6, -10, -3, -11, -4, -13)
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_p03ua"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_qbgwb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_objgg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_tlw4k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_nseq7")
+}],
+"loop": true,
+"name": &"flying",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_j3hbo"]
+radius = 35.0
+height = 74.0
+
 [node name="RootScene" type="Node2D"]
 
 [node name="TextureRect" type="TextureRect" parent="."]
-offset_left = -181.0
-offset_top = -449.0
-offset_right = 1739.0
-offset_bottom = 631.0
+offset_left = -194.0
+offset_top = -385.0
+offset_right = 1726.0
+offset_bottom = 695.0
 texture = ExtResource("1_ogr4o")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
@@ -1063,11 +1096,20 @@ tile_map_data = PackedByteArray("AAAAABMAAAAGAAIAAAABABMAAAACAAAAAAACABMAAAADAAA
 tile_set = SubResource("TileSet_4g46u")
 
 [node name="Torch" parent="." instance=ExtResource("3_44pyi")]
-position = Vector2(591, 241)
+position = Vector2(610, 260)
 energy = 1.5
 shadow_enabled = true
 shadow_filter = 1
 shadow_filter_smooth = 30.0
+script = ExtResource("4_gt8qm")
+
+[node name="Area2D" type="Area2D" parent="Torch"]
+position = Vector2(-2, 6)
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Torch/Area2D"]
+shape = SubResource("CircleShape2D_2h3hh")
+one_way_collision_margin = 0.0
 
 [node name="Torch2" parent="." instance=ExtResource("3_44pyi")]
 position = Vector2(1172, 358)
@@ -1077,7 +1119,7 @@ shadow_filter = 1
 shadow_filter_smooth = 30.0
 
 [node name="Torch3" parent="." instance=ExtResource("3_44pyi")]
-position = Vector2(287, 465)
+position = Vector2(218, 424)
 energy = 1.5
 shadow_enabled = true
 shadow_filter = 1
@@ -1085,6 +1127,8 @@ shadow_filter_smooth = 30.0
 
 [node name="Player" type="CharacterBody2D" parent="."]
 position = Vector2(831, 303)
+collision_layer = 2
+collision_mask = 5
 script = ExtResource("2_qqwdw")
 metadata/_edit_group_ = true
 
@@ -1117,3 +1161,27 @@ target_position = Vector2(0, 12)
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Player"]
 occluder = SubResource("OccluderPolygon2D_8c7ah")
+
+[node name="Bat" type="Node2D" parent="."]
+position = Vector2(305, 47)
+scale = Vector2(0.3, 0.3)
+script = ExtResource("10_eqbjy")
+
+[node name="AnimatedBatSprite2D" type="AnimatedSprite2D" parent="Bat"]
+position = Vector2(3.33334, 0)
+sprite_frames = SubResource("SpriteFrames_p03ua")
+animation = &"flying"
+autoplay = "flying"
+frame_progress = 0.866593
+
+[node name="Area2D" type="Area2D" parent="Bat/AnimatedBatSprite2D"]
+position = Vector2(-5.66671, 2.33332)
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bat/AnimatedBatSprite2D/Area2D"]
+position = Vector2(5.66672, -2.33332)
+shape = SubResource("CapsuleShape2D_j3hbo")
+
+[connection signal="body_entered" from="Torch/Area2D" to="Torch" method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="Bat/AnimatedBatSprite2D/Area2D" to="Bat" method="_on_Area2D_body_entered"]
