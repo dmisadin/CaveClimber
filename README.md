@@ -8,3 +8,4 @@ Computer Graphics seminar
 - [Castle Brick Timeset](https://jordon-games.itch.io/castle-stone-tileset)
 - [Torch Sprite](https://rone3190.itch.io/torch-32x32-animated)
 - [Background brick wall texture](https://cat-sopelka.itch.io/dungeon-brick-wall)
+- [Key sprite](https://frakassets.itch.io/free-rotating-key)

@@ -1,0 +1,30 @@
+[gd_scene load_steps=2 format=3 uid="uid://21keobrcyc4u"]
+
+[ext_resource type="Texture2D" uid="uid://c4xwqs7e7gt0y" path="res://UI/Health/heart_full.png" id="1_0bfmf"]
+
+[node name="Health" type="HBoxContainer"]
+custom_minimum_size = Vector2(200, 64)
+size_flags_horizontal = 0
+size_flags_vertical = 0
+alignment = 2
+
+[node name="Heart1" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("1_0bfmf")
+expand_mode = 4
+stretch_mode = 4
+
+[node name="Heart2" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("1_0bfmf")
+expand_mode = 4
+stretch_mode = 4
+
+[node name="Heart3" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("1_0bfmf")
+expand_mode = 4
+stretch_mode = 4

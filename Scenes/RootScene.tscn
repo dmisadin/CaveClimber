@@ -1,4 +1,4 @@
-[gd_scene load_steps=97 format=4 uid="uid://ckayv43occd3y"]
+[gd_scene load_steps=101 format=4 uid="uid://ckayv43occd3y"]
 
 [ext_resource type="Texture2D" uid="uid://cmoivdeik8l7k" path="res://Scenes/Textures/CastleStones.png" id="1_hl8ww"]
 [ext_resource type="Texture2D" uid="uid://yf6ab2s2jx8t" path="res://Scenes/Textures/Dungeon_brick_wall_blue_dark.png" id="1_ogr4o"]
@@ -6,8 +6,12 @@
 [ext_resource type="Script" path="res://Sprites/PlayerController.cs" id="2_qqwdw"]
 [ext_resource type="PackedScene" uid="uid://ckc8fr1mv8qyd" path="res://Sprites/Torch/Torch.tscn" id="3_44pyi"]
 [ext_resource type="Texture2D" uid="uid://eayhoegmrr83" path="res://Sprites/Knight/HURT.png" id="3_g73n4"]
+[ext_resource type="PackedScene" uid="uid://xf8a3wo38yub" path="res://Sprites/Key/KeyAnimated.tscn" id="4_0gtk2"]
 [ext_resource type="Texture2D" uid="uid://k47onlx2y8ql" path="res://Sprites/Knight/JUMP.png" id="4_083g3"]
 [ext_resource type="Texture2D" uid="uid://4r3xe1skg3ea" path="res://Sprites/Knight/RUN.png" id="5_ajp8b"]
+[ext_resource type="PackedScene" uid="uid://21keobrcyc4u" path="res://UI/Health/Health.tscn" id="9_6htfb"]
+[ext_resource type="Theme" uid="uid://28ogne81w8ep" path="res://UI/ui_theme.tres" id="10_7epiu"]
+[ext_resource type="Texture2D" uid="uid://cr3ijmh1h8e7q" path="res://Sprites/Key/Key.png" id="11_rtujv"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_efouo"]
 polygon = PackedVector2Array(-12, -11.75, 16, -11.25, 16, 16, -11.75, 16)
@@ -1083,6 +1087,9 @@ shadow_enabled = true
 shadow_filter = 1
 shadow_filter_smooth = 30.0
 
+[node name="AnimatedSprite2D" parent="." instance=ExtResource("4_0gtk2")]
+position = Vector2(1184, 268)
+
 [node name="Player" type="CharacterBody2D" parent="."]
 position = Vector2(831, 303)
 script = ExtResource("2_qqwdw")
@@ -1117,3 +1124,45 @@ target_position = Vector2(0, 12)
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Player"]
 occluder = SubResource("OccluderPolygon2D_8c7ah")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
+color = Color(0, 0, 0, 1)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer"]
+self_modulate = Color(1, 1, 1, 0)
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -101.0
+offset_top = 23.0
+offset_right = -26.0
+offset_bottom = 125.0
+grow_horizontal = 0
+theme = ExtResource("10_7epiu")
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/PanelContainer"]
+layout_direction = 3
+layout_mode = 2
+
+[node name="Health" parent="CanvasLayer/PanelContainer/GridContainer" instance=ExtResource("9_6htfb")]
+layout_mode = 2
+
+[node name="Spacer" type="Control" parent="CanvasLayer/PanelContainer/GridContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="Inventory" type="HBoxContainer" parent="CanvasLayer/PanelContainer/GridContainer"]
+layout_mode = 2
+
+[node name="Key" type="TextureRect" parent="CanvasLayer/PanelContainer/GridContainer/Inventory"]
+self_modulate = Color(1, 1, 1, 0.490196)
+layout_mode = 2
+texture = ExtResource("11_rtujv")
+stretch_mode = 4
+
+[node name="InventoryLabel" type="Label" parent="CanvasLayer/PanelContainer/GridContainer/Inventory"]
+layout_mode = 2
+text = "Inventory"
