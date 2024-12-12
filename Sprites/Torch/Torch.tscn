@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://ckc8fr1mv8qyd"]
+[gd_scene load_steps=13 format=3 uid="uid://ckc8fr1mv8qyd"]
 
 [ext_resource type="Texture2D" uid="uid://cyi64s0gh0bsl" path="res://Scenes/Textures/LightGradientTexture.png" id="1_8s2ga"]
 [ext_resource type="Texture2D" uid="uid://b05km0xn3ooth" path="res://Sprites/Torch/TorchAnimated.png" id="1_h1qmt"]
+[ext_resource type="Texture2D" uid="uid://r7ddkm3ng7lp" path="res://Sprites/Torch/torchOFF.png" id="2_8sgxq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_inwge"]
 atlas = ExtResource("1_h1qmt")
@@ -39,6 +40,14 @@ region = Rect2(448, 0, 64, 64)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("2_8sgxq")
+}],
+"loop": true,
+"name": &"Off",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_inwge")
 }, {
 "duration": 1.0,
@@ -63,7 +72,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_4d2k7")
 }],
 "loop": true,
-"name": &"default",
+"name": &"On",
 "speed": 5.0
 }]
 
@@ -75,6 +84,7 @@ shadow_filter = 2
 shadow_filter_smooth = 64.0
 texture = ExtResource("1_8s2ga")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="TorchSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_xy36q")
-autoplay = "default"
+animation = &"On"
+autoplay = "On"
