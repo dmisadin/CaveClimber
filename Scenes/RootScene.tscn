@@ -1,4 +1,4 @@
-[gd_scene load_steps=110 format=4 uid="uid://ckayv43occd3y"]
+[gd_scene load_steps=111 format=4 uid="uid://ckayv43occd3y"]
 
 [ext_resource type="Texture2D" uid="uid://cmoivdeik8l7k" path="res://Scenes/Textures/CastleStones.png" id="1_hl8ww"]
 [ext_resource type="Texture2D" uid="uid://yf6ab2s2jx8t" path="res://Scenes/Textures/Dungeon_brick_wall_blue_dark.png" id="1_ogr4o"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://cyi64s0gh0bsl" path="res://Scenes/Textures/LightGradientTexture.png" id="12_q23nr"]
 [ext_resource type="Texture2D" uid="uid://c2mps403hmmb7" path="res://Sprites/Bat/Bat3.png" id="13_tlw4k"]
 [ext_resource type="Texture2D" uid="uid://bf84mio25nbi0" path="res://Sprites/Bat/Bat4.png" id="14_nseq7"]
+[ext_resource type="PackedScene" uid="uid://cyh7vt80lbsyk" path="res://UI/HUD.tscn" id="18_t6kd6"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_6ea3q"]
 polygon = PackedVector2Array(-9.5, -8.5, 16, -11.25, 16, 16, -11.75, 16)
@@ -1245,6 +1246,8 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bat/AnimatedBatSprite2D/Area2D"]
 position = Vector2(5.66672, -2.33332)
 shape = SubResource("CapsuleShape2D_j3hbo")
+
+[node name="HUD" parent="." instance=ExtResource("18_t6kd6")]
 
 [connection signal="body_entered" from="Torch/Area2D" to="Torch" method="_on_Area2D_body_entered"]
 [connection signal="body_entered" from="Bat/AnimatedBatSprite2D/Area2D" to="Bat" method="_on_Area2D_body_entered"]
