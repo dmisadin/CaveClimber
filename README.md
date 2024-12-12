@@ -9,3 +9,4 @@ Computer Graphics seminar
 - [Torch Sprite](https://rone3190.itch.io/torch-32x32-animated)
 - [Background brick wall texture](https://cat-sopelka.itch.io/dungeon-brick-wall)
 - [Key sprite](https://frakassets.itch.io/free-rotating-key)
+- [Water texture](https://ninjikin.itch.io/water)
