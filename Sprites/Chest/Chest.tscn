@@ -1,0 +1,66 @@
+[gd_scene load_steps=10 format=3 uid="uid://c12whenmntbmx"]
+
+[ext_resource type="Texture2D" uid="uid://dv4vhhhc1af17" path="res://Sprites/Chest/Wooden Chest 3 - Spritesheet.png" id="1_8ggj1"]
+[ext_resource type="Script" path="res://Sprites/Chest/Chest.cs" id="1_is46h"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sn7wv"]
+atlas = ExtResource("1_8ggj1")
+region = Rect2(0, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x5cic"]
+atlas = ExtResource("1_8ggj1")
+region = Rect2(48, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e6ep0"]
+atlas = ExtResource("1_8ggj1")
+region = Rect2(96, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ixuk5"]
+atlas = ExtResource("1_8ggj1")
+region = Rect2(144, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ng1v3"]
+atlas = ExtResource("1_8ggj1")
+region = Rect2(192, 0, 48, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5mgeu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sn7wv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x5cic")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e6ep0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ixuk5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ng1v3")
+}],
+"loop": false,
+"name": &"open",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i8n28"]
+size = Vector2(55, 31)
+
+[node name="ChestNode" type="Node2D"]
+script = ExtResource("1_is46h")
+
+[node name="ChestSprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_5mgeu")
+animation = &"open"
+
+[node name="ChestArea" type="Area2D" parent="ChestSprite"]
+collision_layer = 4
+collision_mask = 2
+
+[node name="ChestCollisionShape" type="CollisionShape2D" parent="ChestSprite/ChestArea"]
+shape = SubResource("RectangleShape2D_i8n28")
+
+[connection signal="body_entered" from="ChestSprite/ChestArea" to="." method="_on_chest_area_body_entered"]

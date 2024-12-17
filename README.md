@@ -10,3 +10,4 @@ Computer Graphics seminar
 - [Background brick wall texture](https://cat-sopelka.itch.io/dungeon-brick-wall)
 - [Key sprite](https://frakassets.itch.io/free-rotating-key)
 - [Water texture](https://ninjikin.itch.io/water)
+- [Chest Sprite](https://karsiori.itch.io/pixel-art-chest-pack-animated)
