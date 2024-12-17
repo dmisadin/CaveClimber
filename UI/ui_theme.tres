@@ -3,5 +3,6 @@
 [ext_resource type="FontFile" uid="uid://bxaktdmy5slst" path="res://UI/chalk-board.regular.ttf" id="1_cr2ku"]
 
 [resource]
-Label/font_sizes/font_size = 32
+Label/colors/font_outline_color = Color(0, 0, 0, 1)
+Label/font_sizes/font_size = 42
 Label/fonts/font = ExtResource("1_cr2ku")
