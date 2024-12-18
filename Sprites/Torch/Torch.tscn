@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://ckc8fr1mv8qyd"]
 
-[ext_resource type="Texture2D" uid="uid://bdtkm6mbng2y2" path="res://Sprites/Torch/TorchTexture.png" id="1_b3il1"]
+[ext_resource type="Texture2D" uid="uid://cyi64s0gh0bsl" path="res://Scenes/Textures/LightGradientTexture.png" id="1_8s2ga"]
 [ext_resource type="Texture2D" uid="uid://b05km0xn3ooth" path="res://Sprites/Torch/TorchAnimated.png" id="1_h1qmt"]
 [ext_resource type="Texture2D" uid="uid://r7ddkm3ng7lp" path="res://Sprites/Torch/torchOFF.png" id="2_8sgxq"]
 
@@ -78,8 +78,11 @@ animations = [{
 
 [node name="Torch" type="PointLight2D"]
 color = Color(1, 0.556863, 0, 1)
-texture = ExtResource("1_b3il1")
-texture_scale = 4.0
+energy = 0.75
+shadow_enabled = true
+shadow_filter = 2
+shadow_filter_smooth = 64.0
+texture = ExtResource("1_8s2ga")
 
 [node name="TorchSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_xy36q")

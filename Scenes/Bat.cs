@@ -40,6 +40,14 @@ public partial class Bat : Node2D
 	{
 		if (body is PlayerController)
 		{
+            var playerData = GetNode<PlayerData>("/root/PlayerData");
+
+            playerData.DecreaseHealth(1);
+
+            if( playerData.Health <= 0) 
+            {
+                GD.Print("Game OVER!");
+            }
 			QueueFree();  // Remove the bat
 		}
 	}
