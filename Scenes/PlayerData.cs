@@ -3,6 +3,8 @@ using System.Collections.Generic;
 
 public partial class PlayerData : Node
 {
+    [Signal]
+    public delegate void HealthChangedEventHandler(int newHealth);
     // Player's health (default is 3 hearts)
     private int _health = 3;
 
@@ -34,12 +36,15 @@ public partial class PlayerData : Node
     public void DecreaseHealth(int amount = 1)
     {
         _health = Mathf.Max(0, _health - amount);
+        
+        EmitSignal(SignalName.HealthChanged, _health);
     }
 
     // Increase player's health
     public void IncreaseHealth(int amount = 1)
     {
         _health = Mathf.Min(3, _health + amount); // Max hearts = 3
+        EmitSignal(SignalName.HealthChanged, _health);
     }
 
     // Reset data (optional, useful for restarting)
