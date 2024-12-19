@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://q6wn7rq02ktn"]
+
+[ext_resource type="Texture2D" uid="uid://bvai4hm0e30gf" path="res://Sprites/BatSpawner/mainlevbuild.png" id="1_jv7fh"]
+[ext_resource type="Script" path="res://Scenes/BatSpawner.cs" id="1_qvsad"]
+[ext_resource type="PackedScene" uid="uid://dxkm2io6y1j56" path="res://Scenes/bat.tscn" id="2_5pbd2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2bp80"]
+radius = 64.0
+
+[node name="BatSpawner" type="Node2D"]
+script = ExtResource("1_qvsad")
+Bat = ExtResource("2_5pbd2")
+
+[node name="BatSpawnerSprite" type="Sprite2D" parent="."]
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("1_jv7fh")
+
+[node name="BatSpawnerArea" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="BatSpawnerCollisionShape" type="CollisionShape2D" parent="BatSpawnerArea"]
+shape = SubResource("CircleShape2D_2bp80")
+
+[connection signal="body_entered" from="BatSpawnerArea" to="." method="_on_bat_spawner_area_body_entered"]

@@ -31,7 +31,6 @@ radius = 35.0
 height = 74.0
 
 [node name="Bat" type="Node2D"]
-position = Vector2(305, 47)
 scale = Vector2(0.3, 0.3)
 script = ExtResource("1_2lmgf")
 

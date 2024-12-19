@@ -15,7 +15,7 @@ public partial class BatSpawner : Node2D
 	
 	}
 
-	private void _on_Area2D_body_entered(Node body)
+	private void _on_bat_spawner_area_body_entered(Node body)
 	{
 		if (body is PlayerController)
 		{
