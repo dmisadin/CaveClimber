@@ -1,0 +1,59 @@
+[gd_scene load_steps=9 format=3 uid="uid://dxkm2io6y1j56"]
+
+[ext_resource type="Script" path="res://Scenes/Bat.cs" id="1_2lmgf"]
+[ext_resource type="Texture2D" uid="uid://br4f8s2pdndur" path="res://Sprites/Bat/Bat1.png" id="2_pg8eh"]
+[ext_resource type="Texture2D" uid="uid://c1gt4huvj66ts" path="res://Sprites/Bat/Bat2.png" id="3_xj7df"]
+[ext_resource type="Texture2D" uid="uid://c2mps403hmmb7" path="res://Sprites/Bat/Bat3.png" id="4_v6bgw"]
+[ext_resource type="Texture2D" uid="uid://bf84mio25nbi0" path="res://Sprites/Bat/Bat4.png" id="5_otfrb"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p03ua"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_pg8eh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_xj7df")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_v6bgw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_otfrb")
+}],
+"loop": true,
+"name": &"flying",
+"speed": 5.0
+}]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_q7c6a"]
+polygon = PackedVector2Array(-16.6667, 0, 3.33333, -20, 20, -10, 20, 13.3333, 3.33333, 30)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_j3hbo"]
+radius = 35.0
+height = 74.0
+
+[node name="Bat" type="Node2D"]
+scale = Vector2(0.3, 0.3)
+script = ExtResource("1_2lmgf")
+
+[node name="AnimatedBatSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(3.33334, 0)
+sprite_frames = SubResource("SpriteFrames_p03ua")
+animation = &"flying"
+autoplay = "flying"
+frame_progress = 0.866593
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="AnimatedBatSprite2D"]
+occluder = SubResource("OccluderPolygon2D_q7c6a")
+
+[node name="Area2D" type="Area2D" parent="AnimatedBatSprite2D"]
+position = Vector2(-5.66671, 2.33332)
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedBatSprite2D/Area2D"]
+position = Vector2(5.66672, -2.33332)
+shape = SubResource("CapsuleShape2D_j3hbo")
+
+[connection signal="body_entered" from="AnimatedBatSprite2D/Area2D" to="." method="_on_Area2D_body_entered"]

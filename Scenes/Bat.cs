@@ -32,7 +32,18 @@ public partial class Bat : Node2D
 			{
 				_targetDirection = direction.Normalized();
 				Position += _targetDirection * _speed * (float)delta;
+				UpdateSpriteFlip(direction);
 			}
+		}
+	}
+	
+	private void UpdateSpriteFlip(Vector2 direction)
+	{
+		var animatedSprite = GetNode<AnimatedSprite2D>("AnimatedBatSprite2D");
+
+		if (animatedSprite != null)
+		{
+			animatedSprite.FlipH = direction.X < 0;
 		}
 	}
 
