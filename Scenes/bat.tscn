@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dxkm2io6y1j56"]
+[gd_scene load_steps=9 format=3 uid="uid://dxkm2io6y1j56"]
 
 [ext_resource type="Script" path="res://Scenes/Bat.cs" id="1_2lmgf"]
 [ext_resource type="Texture2D" uid="uid://br4f8s2pdndur" path="res://Sprites/Bat/Bat1.png" id="2_pg8eh"]
@@ -26,6 +26,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_q7c6a"]
+polygon = PackedVector2Array(-16.6667, 0, 3.33333, -20, 20, -10, 20, 13.3333, 3.33333, 30)
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_j3hbo"]
 radius = 35.0
 height = 74.0
@@ -40,6 +43,9 @@ sprite_frames = SubResource("SpriteFrames_p03ua")
 animation = &"flying"
 autoplay = "flying"
 frame_progress = 0.866593
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="AnimatedBatSprite2D"]
+occluder = SubResource("OccluderPolygon2D_q7c6a")
 
 [node name="Area2D" type="Area2D" parent="AnimatedBatSprite2D"]
 position = Vector2(-5.66671, 2.33332)
