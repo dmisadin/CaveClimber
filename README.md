@@ -11,3 +11,6 @@ Computer Graphics seminar
 - [Key sprite](https://frakassets.itch.io/free-rotating-key)
 - [Water texture](https://ninjikin.itch.io/water)
 - [Chest Sprite](https://karsiori.itch.io/pixel-art-chest-pack-animated)
+
+### Demo video:
+https://www.youtube.com/watch?v=W5kZyeJvpwk

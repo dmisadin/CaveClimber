@@ -20,7 +20,7 @@ public partial class TorchController : PointLight2D
 		}
 	}
 
-	private void _on_Area2D_body_entered(Node body)
+	private void OnProximityBodyEntered(Node body)
 	{
 		GD.Print("BODY ENTERED!");
 		if (body is PlayerController)  // Check if the player touches the torch

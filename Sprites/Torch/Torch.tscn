@@ -1,8 +1,19 @@
-[gd_scene load_steps=13 format=3 uid="uid://ckc8fr1mv8qyd"]
+[gd_scene load_steps=17 format=3 uid="uid://ckc8fr1mv8qyd"]
 
 [ext_resource type="Texture2D" uid="uid://cyi64s0gh0bsl" path="res://Scenes/Textures/LightGradientTexture.png" id="1_8s2ga"]
 [ext_resource type="Texture2D" uid="uid://b05km0xn3ooth" path="res://Sprites/Torch/TorchAnimated.png" id="1_h1qmt"]
 [ext_resource type="Texture2D" uid="uid://r7ddkm3ng7lp" path="res://Sprites/Torch/torchOFF.png" id="2_8sgxq"]
+[ext_resource type="Script" path="res://Sprites/Torch/Torch.cs" id="2_o81xu"]
+[ext_resource type="Texture2D" uid="uid://t6hiuvqjtmjh" path="res://Resources/perlin_noise.png" id="4_vrb34"]
+[ext_resource type="Shader" path="res://Shaders/HeatHaze.gdshader" id="5_hptup"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kbhqn"]
+shader = ExtResource("5_hptup")
+shader_parameter/distortion_strength = 2.0
+shader_parameter/speed = 1.0
+shader_parameter/scale = 1.0
+shader_parameter/screen_size = Vector2(1920, 1080)
+shader_parameter/noise_texture = ExtResource("4_vrb34")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_inwge"]
 atlas = ExtResource("1_h1qmt")
@@ -83,8 +94,12 @@ shadow_enabled = true
 shadow_filter = 2
 shadow_filter_smooth = 64.0
 texture = ExtResource("1_8s2ga")
+script = ExtResource("2_o81xu")
 
 [node name="TorchSprite" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_kbhqn")
 sprite_frames = SubResource("SpriteFrames_xy36q")
 animation = &"On"
 autoplay = "On"
+frame = 3
+frame_progress = 0.0373263

@@ -758,15 +758,21 @@ texture_region_size = Vector2i(32, 32)
 9:4/0/terrains_peering_bit/top_side = 0
 10:4/0 = 0
 10:4/0/terrain_set = 0
+10:4/0/terrain = 0
 10:4/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_rdea3")
 10:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+10:4/0/terrains_peering_bit/right_side = 0
+10:4/0/terrains_peering_bit/bottom_side = 0
 11:4/0 = 0
 11:4/0/terrain_set = 0
+11:4/0/terrain = 0
 11:4/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_4pbba")
 11:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+11:4/0/terrains_peering_bit/bottom_side = 0
+11:4/0/terrains_peering_bit/left_side = 0
 0:5/0 = 0
 0:5/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_vnrxh")
-0:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+0:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(16, -16, 16, 16, -16, 16)
 1:5/0 = 0
 1:5/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_a1r7k")
 1:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, -16, 16, 16, 16)
@@ -836,12 +842,18 @@ texture_region_size = Vector2i(32, 32)
 9:5/0/terrains_peering_bit/top_right_corner = 0
 10:5/0 = 0
 10:5/0/terrain_set = 0
+10:5/0/terrain = 0
 10:5/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_q7e7p")
 10:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+10:5/0/terrains_peering_bit/right_side = 0
+10:5/0/terrains_peering_bit/top_side = 0
 11:5/0 = 0
 11:5/0/terrain_set = 0
+11:5/0/terrain = 0
 11:5/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_kgtgn")
 11:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+11:5/0/terrains_peering_bit/left_side = 0
+11:5/0/terrains_peering_bit/top_side = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_phr2r"]
 texture = ExtResource("3_7w054")
@@ -906,7 +918,7 @@ radius = 55.3624
 metadata/_edit_vertical_guides_ = [84.0]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color(0.215606, 0.259797, 0.285736, 1)
+color = Color(0.107164, 0.13432, 0.150248, 1)
 
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_left = -194.0
@@ -964,4 +976,4 @@ position = Vector2(1440, 302)
 [node name="BatSpawner" parent="." instance=ExtResource("8_sxykk")]
 position = Vector2(562, 292)
 
-[connection signal="body_entered" from="Torch/Area2D" to="Torch" method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="Torch/Area2D" to="Torch" method="OnProximityBodyEntered"]

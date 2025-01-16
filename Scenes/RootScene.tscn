@@ -300,9 +300,10 @@ polygon = PackedVector2Array(-1, -17, 4, -17, 8, -13, 7, -10, 6, -5, 12, -4, 11,
 [node name="RootScene" type="Node2D"]
 
 [node name="Level" parent="." instance=ExtResource("1_7tw5v")]
+position = Vector2(0, 3)
 
 [node name="Player" type="CharacterBody2D" parent="."]
-position = Vector2(573, 584)
+position = Vector2(474, 523)
 collision_layer = 2
 collision_mask = 5
 script = ExtResource("2_qqwdw")
